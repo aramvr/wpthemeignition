@@ -14,26 +14,36 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
         <header id="masthead" class="site-header" role="banner">
-            <div class="col-xl-12 main-menu border container">
-                <div class="row">
-                    <div class="col-xl-2">
-                        <div class="logobar">
-                            <a href="<?php get_home_url() ?>" >
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/logo.png">
-                            </a>
+            <nav class="navbar navbar-toggleable-md main-menu">
+                <div class="container menu-sm">
+
+                        <div class="col-lg-2">
+                            <div class="navbar-brand logobar">
+                                <a href="<?php get_home_url() ?>" >
+                                    <img src="<?php echo get_template_directory_uri()?>/assets/img/logo.png">
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-7">
-                        <?php
-                            wp_nav_menu( array( 'theme_location' => 'header-menu' ) );
-                        ?>
-                    </div>
-                    <div class="col-xl-3 text-right">
-                        <div class="header-button">
-                            <a href="#"><button class="igite-button">Igite</button></a>
+                        <div class="col-lg-10 collapse navbar-collapse" id="navbarNav">
+                            <div class="col-lg-9">
+                                <?php
+                                wp_nav_menu( array( 'theme_location' => 'header-menu' ) );
+                                ?>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-12 text-center text-lg-right">
+                                <div class="header-button">
+                                    <a href="#"><button class="igite-button">Igite</button></a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
                 </div>
+                <a class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="navbar-icon"></div>
+                </a>
+
+            </nav>
         </header><!-- .site-header -->
 
     </div><!-- .sidebar -->

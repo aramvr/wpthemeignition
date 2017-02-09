@@ -16,4 +16,10 @@ console.log(activestep);
         $(this).children().addClass('step-'+step+'-img-active');
         event.preventDefault();
     })
+
+    $('.navbar-toggler').click(function() {
+        $('.main-menu').toggleClass('main-menu-collapsed');
+    });
+
+
 });
