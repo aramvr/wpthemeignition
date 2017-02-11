@@ -2,24 +2,44 @@ jQuery(document).ready(function($){
     AOS.init();
 
     $('.stepicon').click(function (event) {
+        $('.step-round-active').removeClass('step-round-active');
+        $(this).children().addClass('step-round-active');
         var step = $(this).data('step');
         var activestep = $('.activeStep').data('step');
-        $('.activeStep div').removeClass('step-'+activestep+'-img-active');
-        $('.activeStep div').addClass('step-'+activestep+'-img');
-console.log(activestep);
+
         $('.activeStep').removeClass('activeStep');
         $('.step-'+step).addClass('animated pulse');
         $('.step-'+step).addClass('activeStep');
         $(this).addClass('activeStep');
 
-        $(this).children().removeClass('step-'+step+'-img');
-        $(this).children().addClass('step-'+step+'-img-active');
         event.preventDefault();
-    })
-
-    $('.navbar-toggler').click(function() {
-        $('.main-menu').toggleClass('main-menu-collapsed');
     });
 
 
+    $('.main-menu').on('show.bs.collapse', function (e) {
+        $('.main-menu').addClass('main-menu-collapsed');
+        $('.main-menu').addClass('fadeIn');
+        $('#navbarNav').addClass('fadeInUp');
+    });
+
+
+    $('.main-menu').on('hide.bs.collapse', function (e) {
+        $('#navbarNav').removeClass('fadeInDown');
+        $('#navbarNav').addClass('fadeOut');
+    });
+
+    $('.main-menu').on('hidden.bs.collapse', function (e) {
+        $('.main-menu').addClass('fadeOut');
+        setTimeout(function(){
+            $('.main-menu').removeClass('main-menu-collapsed');
+            $('#navbarNav').removeClass('fadeOut');
+            $('.main-menu').removeClass('fadeOut');
+        }, 600);
+
+
+    });
+
+    $('.header-button a').smoothScroll({
+        speed: 1200
+    });
 });

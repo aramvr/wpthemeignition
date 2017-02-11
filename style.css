@@ -40,6 +40,7 @@ Text Domain: ignition
     top: 0;
     bottom: 0;
     height: 100%;
+
 }
 .picture-header {
     height:885px;
@@ -47,6 +48,7 @@ Text Domain: ignition
     background-repeat: no-repeat;
     overflow: hidden;
     background-size: cover;
+    position: relative;
 
 }
 
@@ -66,13 +68,14 @@ Text Domain: ignition
     line-height: 20px;
     text-transform: uppercase;
     cursor:pointer;
+    outline: none;
 }
 
 .menu {
     margin-top:26px;
 }
 
-.menu ul li a {
+.header_menu ul li a {
     color: #ebebeb;
     color: #ebebeb;
     font-family: "Open Sans";
@@ -82,7 +85,7 @@ Text Domain: ignition
     text-transform: uppercase;
     text-decoration: none;
 }
-.menu ul li {
+.header_menu ul li {
     display: inline;
     padding-left:25px;
     padding-right:25px;
@@ -98,6 +101,9 @@ Text Domain: ignition
     padding-top: 200px;
 
 }
+.navbar-toggler {
+    -webkit-appearance: none!important;
+}
 /* --- END MENU --- */
 
 /* --- HEADER --- */
@@ -107,7 +113,7 @@ Text Domain: ignition
     position: absolute;
     width: 100%;
 }
-.header-message h2 {
+.header-message h1 {
     color: #414141;
     font-family: "Fjalla One";
     font-size: 55px;
@@ -154,6 +160,19 @@ Text Domain: ignition
 .swatch-bottom {
     margin-top: 150px;
 }
+.shadow-bottom-1 svg {
+    filter: drop-shadow( 0px 13px 5px rgba(0, 0, 0, 0.3) );
+}
+.shadow-bottom-2 svg {
+    filter: drop-shadow( 0px 3px 10px rgba(0, 0, 0, 0.3) );
+}
+.shadow-bottom-3 svg {
+    filter: drop-shadow( 1px 11px 8px rgba(0, 0, 0, 0.3) );
+}
+.swatch-3 {
+    position: relative;
+    z-index: 9;
+}
 /*  END DECORS */
 
 .section {
@@ -174,6 +193,7 @@ Text Domain: ignition
 }
 .devices {
     width: 100%;
+    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -182,13 +202,13 @@ Text Domain: ignition
     position: absolute;
 }
 .devices .macbook {
-    right: 0px;
+    left: 450px;
     top: 140px;
     z-index:9;
 }
 .devices .imac {
     z-index:10;
-    right:230px
+    left:211px
 }
 .devices .ipad {
     z-index:11;
@@ -230,8 +250,7 @@ Text Domain: ignition
 /* --- SECTION 3 --- */
 .section-3 {
     background-color: #414141;
-/*    margin-bottom:150px;
-    margin-top:370px;*/
+
 }
 
 .section-3 .section-text {
@@ -240,7 +259,7 @@ Text Domain: ignition
     font-family: "Fjalla One";
     font-size: 55px;
     font-weight: 400;
-    line-height: 50px;
+    line-height: 80px;
 }
 .sec-3 {
     margin-top: 161px;
@@ -276,63 +295,99 @@ Text Domain: ignition
 .activeStep {
     display:block;
 }
-.step-1-img {
-    background-image: url(assets/img/step1-fuel-innactive.png);
+.step-round {
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
     width: 150px;
     height: 150px;
-    background-repeat: no-repeat;
     margin: 0 auto;
+    background-color: white;
+
 }
-.step-1-img-active {
-    background-image: url(assets/img/step1-fuel-active.png);
+
+.step-round-active {
+    background-color: #e44933;
+}
+
+
+/* Radial Out  Effect */
+.hvr-radial-out {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+.hvr-radial-out:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #e44933;
+    border-radius: 100%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.hvr-radial-out:hover, .hvr-radial-out:focus, .hvr-radial-out:active {
+    background: #e44933;
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+}
+.hvr-radial-out:hover:before, .hvr-radial-out:focus:before, .hvr-radial-out:active:before {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+}
+
+
+.step-icon {
     width: 150px;
     height: 150px;
     background-repeat: no-repeat;
     margin: 0 auto;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    background-position: center;
+}
+
+.step-1-img {
+    background-image: url(assets/img/step_1.png);
 }
 
 .step-2-img {
-    background-image: url(assets/img/step2-ignite-innactive.png);
-    width: 150px;
-    height: 150px;
-    background-repeat: no-repeat;
-    margin: 0 auto;
+    background-image: url(assets/img/step_2.png);
 }
-.step-2-img-active {
-    background-image: url(assets/img/step2-ignite-active.png);
-    width: 150px;
-    height: 150px;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-}
+
 .step-3-img {
-    background-image: url(assets/img/step3-blastoff-innactive.png);
-    width: 150px;
-    height: 150px;
-    background-repeat: no-repeat;
-    margin: 0 auto;
+    background-image: url(assets/img/step_3.png);
 }
-.step-3-img-active {
-    background-image: url(assets/img/step3-blastoff-active.png);
-    width: 150px;
-    height: 150px;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-}
+
 /* end steps */
 
 /* --- END SECTION 3 --- */
 
 
-
-
-
 /* --- SECTION 4 --- */
 .section-4 {
-    background-image: url(assets/img/parallax.png);
     height:700px;
 }
-
 
 /* --- END SECTION 4 --- */
 
@@ -346,7 +401,7 @@ Text Domain: ignition
     padding-top:250px;
     padding-bottom:65px;
 }
-.contact-title h3 {
+.contact-title h2 {
     color: #ffffff;
     font-family: "Fjalla One";
     font-size: 55px;
@@ -413,35 +468,28 @@ Text Domain: ignition
     width:64px;
     height:64px;
     margin-top: 20px;
+
+}
+.social {
+    width:64px;
+    height:64px;
+    margin-top: 20px;
+    background-repeat: no-repeat;
 }
 .soc-google-pluse {
     background-image: url(assets/img/desktop-social-googleplis.png);
-    width:64px;
-    height:64px;
-    margin-top: 20px;
+
 }
 .soc-twitter {
     background-image: url(assets/img/desktop-social-twitter.png);
-    width:64px;
-    height:64px;
-    margin-top: 20px;
 }
 .soc-linkedin {
     background-image: url(assets/img/desktop-social-linkedin.png);
-    width:64px;
-    height:64px;
-    margin-top: 20px;
 }
 .soc-facebook {
     background-image: url(assets/img/desktop-social-facebook.png);
-    width:64px;
-    height:64px;
-    margin-top: 20px;
 }
-.soc-icon {
-    margin-right: 12px;
-    margin-left: 12px;
-}
+
 .contact-widget p {
     color: #e6e7e8;
     font-family: "Open Sans";
@@ -524,7 +572,127 @@ div.wpcf7-validation-errors {
     font-weight: 400;
     line-height: 20px;
     text-transform: uppercase;
+    outline: none;
 }
+
+/* --- CONTACT FORM 7 INTEGRATION --- */
+.wpcf7-form-control-wrap input, .wpcf7-form-control-wrap textarea {
+    font-family: "Open Sans";
+    font-size: 21px;
+    font-weight: 100;
+    line-height: 25px;
+
+    /* bootstrap form-control style */
+    display: block;
+    width: 100%;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
+.wpcf7-form-control-wrap input {
+    height: 50px;
+}
+.wpcf7-form-control-wrap textarea {
+    height:130px;
+}
+
+.wpcf7-submit {
+    cursor:pointer;
+    margin-top:33px;
+    width: 401px;
+    height: 63px;
+    border-radius: 31px;
+    border: 3px solid #f94a32;
+    background-color: #f94a32;
+    color: #000000;
+    font-family: "Fjalla One";
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+.wpcf7-form label {
+    color: #fff;
+    line-height: 40px;
+    font-weight: 100;
+    font-size: 20px;
+    width:100%;
+}
+form.wpcf7-form p {
+    text-align: center;
+}
+
+/* --- END CONTACT FORM 7 INTEGRATION --- */
+
+/* --- MAILCHIMP INTEGRATION --- */
+
+.mc4wp-form-fields label {
+    display: none;
+}
+
+.mc4wp-form-fields input[type=email] {
+    font-family: "Open Sans";
+    font-size: 21px;
+    font-weight: 100;
+    line-height: 25px;
+    height: 50px;
+    float: left;
+    width: 50%;
+    margin-right: 30px;
+    max-width: 354px;
+
+    /* bootstrap form-control style */
+    display: block;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    outline: none;
+
+}
+.mc4wp-form-fields input[type=submit]{
+    width: 319px;
+    height: 50px;
+    border-radius: 25px;
+    border: 3px solid #f94a32;
+    background-color: #f94a32;
+    color: #000000;
+    font-family: "Fjalla One";
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 16px;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+}
+
+.mc4wp-alert p {
+    font-size: 16px;
+}
+/* --- END MAILCHIMP INTEGRATION --- */
 
 /* --- END CONTACT SECTION --- */
 
@@ -547,55 +715,40 @@ div.footer .copyright p {
 }
 /* --- END FOOTER --- */
 
+/* --- UTTILES--- */
 
+.error_message {
+    color: red;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+button:focus {
+    outline: none!important;
+}
+
+/* --- END UTTILES --- */
+
+/* --- RESPONSIVE --- */
 
 @media (min-width: 576px) {
 
 }
 
-@media (max-width: 576px) {
-    .menu-sm {
-        margin-left:0;
-    }
-}
 @media (min-width: 768px) {
     .devices {
         height: 540px;
-        zoom: 0.67;
+        zoom: 0.55;
     }
 
 }
 
-@media (max-width: 768px) {
-    .steps {
-        padding-left: 36px;
-    }
-    .icon-md-center div {
-        margin-right: auto;
-        margin-left: auto;
-        margin-bottom: 20px;
-    }
-    .soc-icon {
-        margin:0 auto;
-    }
-    .subscribe-button {
-        margin-top: 35px;
-    }
-    .navbar-collapse .menu ul li {
-        display: block;
-        text-align: center;
-        line-height: 70px;
-        padding:0;
-    }
-    .navbar-collapse .menu ul {
-        padding: 0;
-    }
-}
 
 @media (min-width: 992px) {
     .devices {
         height: 540px;
         width: 1022px;
+        zoom: 0.7;
     }
 
 
@@ -624,3 +777,121 @@ div.footer .copyright p {
 
 
 }
+
+
+@media (max-width: 425px) {
+    .collapsed .navbar-icon, .navbar-icon {
+        width: 75px;
+        height: 75px;
+        background-size: 75px;
+    }
+    .navbar-brand.logobar img {
+        width: 75px;
+        height: 75px;
+    }
+    .step-icon {
+        width:80px!important;
+        height: 80px!important;
+        background-size: 50px!important;
+    }
+    .step-round {
+        width: 80px!important;
+        height: 80px!important;
+    }
+    .social, .email-icon, .phone-icon {
+        width: 50px;
+        height: 50px;
+        background-size:50px;
+    }
+    .contact-widget a {
+        font-size: 19px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+    .menu-sm {
+        margin-left:0;
+    }
+    .step-icon {
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        background-size: 65px;
+        padding-top: 45px;
+    }
+    .step-round {
+        width: 100px;
+        height: 100px;
+    }
+    .devices {
+        height: 500px!important;
+        zoom: 0.33!important;
+    }
+    .mc4wp-form-fields input[type=submit] {
+        width:100%;
+        max-width: 392px;
+    }
+    h2 {
+        font-size: 23px!important;
+    }
+    .wpcf7-submit {
+        width:100%;
+    }
+    .contact-form-container {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .steps {
+        padding-left: 36px;
+    }
+    .icon-md-center div {
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 20px;
+    }
+    .soc-icon {
+        margin:0 auto;
+    }
+    .subscribe-button {
+        margin-top: 35px;
+    }
+
+
+
+    .devices {
+        height: 530px;
+        zoom: 0.5;
+    }
+    .header-message h1 {
+        font-size: 37px;
+    }
+}
+
+
+@media (max-width: 992px){
+    .mc4wp-form-fields input[type=email] {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+        display: inline;
+        max-width:390px;
+    }
+    .navbar-collapse .header_menu ul li {
+        display: block;
+        text-align: center;
+        line-height: 70px;
+        padding:0;
+    }
+    .navbar-collapse .header_menu ul {
+        padding: 0;
+    }
+}
+
+/* --- END RESPONSIVE --- */
+
